@@ -1,20 +1,12 @@
-
-
-// TODO: Create a function that returns a license badge based on which license is passed in
-// If there is no license, return an empty string
 function renderLicenseBadge(data) {
   if (!data.license || data.license === "None") {
     return '';
   } else {
-    renderLicenseSection(data);
-    renderLicenseLink (data);
+    return renderLicenseLink (data);
   }
 };
 
-// TODO: Create a function that returns the license link
-// If there is no license, return an empty string
 function renderLicenseLink(data) {
-  console.log(data.license)
   if (data.license === 'MIT') {
     return `[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)`;
   }
@@ -30,16 +22,16 @@ function renderLicenseLink(data) {
   else if (data.license === 'ISC') {
     return `[![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)`;
   };
-}
+};
 
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
-function renderLicenseSection(data) {
-  console.log (data.license)
+function renderLicenseSection(license) {
+  if (!license || license === "None") {
+    return '';
+  } else {
   return `## License
-  * This application is covered under the ${data.license} license`;
-}
-
+  * This application is covered under the ${license} license`;
+  }
+};
 
 const generateInstall = installText => {
   if (!installText) {
@@ -70,6 +62,7 @@ const generateTesting = testText => {
   `
   }
 };
+
 installCheck = check => {
   if (!check) {
     return '';
@@ -102,10 +95,10 @@ const testLicense = data => {
   }
 };
 
-// TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
   return `
   # ${data.title}
+  ${renderLicenseBadge(data)}
   ## Description
   ${data.description}
   ## Table of Contents
@@ -119,7 +112,7 @@ function generateMarkdown(data) {
   ${generateInstall(data.installation)}
   ## Usage
   ${data.usage}
-  ${renderLicenseBadge(data)}
+  ${renderLicenseSection(data.license)}
   ${generateContribute(data.contribution)}
   ${generateTesting(data.testing)}
   ## Questions
