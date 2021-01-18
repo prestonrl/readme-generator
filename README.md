@@ -21,7 +21,7 @@
   ## Usage
   Using this node app will simplify the creation of a ReadMe.md file for a GitHub project. By answering simple command line prompts a file will be generated automatically and put into the "dist" folder.
 
-  See the following video for a demonstration:
+  See the following video for a demonstration: [demo](https://drive.google.com/file/d/1s2k216tBNLGKep4nTrOT27NRqxjtBPb5/view)
   
   
   ## Questions
